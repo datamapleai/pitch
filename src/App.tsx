@@ -84,9 +84,6 @@ export default function App() {
             <a href="#market" className="hover:text-black transition-colors">Mercado</a>
             <a href="#roadmap" className="hover:text-black transition-colors">Roadmap</a>
           </div>
-          <button className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-zinc-800 transition-colors">
-            Falar com Fundadores
-          </button>
         </div>
       </nav>
 
@@ -109,12 +106,14 @@ export default function App() {
               Fintech brasileira focada em automação quantitativa e gestão de risco para investidores pessoa física. Performance real acima de marketing.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-black text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-zinc-800 transition-all group">
+              <a 
+                href="https://slategray-dugong-277704.hostingersite.com/pdf/pitch.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-black text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-zinc-800 transition-all group"
+              >
                 Ver Pitch Deck <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="border border-zinc-200 px-8 py-4 rounded-full font-bold hover:bg-zinc-50 transition-all">
-                Nossos Resultados
-              </button>
+              </a>
             </div>
           </motion.div>
           <motion.div 
@@ -396,12 +395,22 @@ export default function App() {
             Estamos buscando parceiros estratégicos para acelerar o desenvolvimento do motor de IA e expandir nossa base de usuários inicial.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-white text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all">
-              Solicitar Deck Completo
-            </button>
-            <button className="border border-white/20 px-10 py-5 rounded-full font-bold text-lg hover:bg-white/5 transition-all">
+            <a 
+              href="https://slategray-dugong-277704.hostingersite.com/pdf/pitch.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all"
+            >
+              Solicitar pitch
+            </a>
+            <a 
+              href="https://wa.me/5551984522460" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="border border-white/20 px-10 py-5 rounded-full font-bold text-lg hover:bg-white/5 transition-all"
+            >
               Agendar Call
-            </button>
+            </a>
           </div>
         </motion.div>
       </Section>
