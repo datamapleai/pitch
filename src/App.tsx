@@ -99,7 +99,7 @@ export default function App() {
               <Target className="w-3 h-3" />
               Captação Pré-Seed: R$ 300.000
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold tracking-tighter leading-[0.9] mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter leading-tight md:leading-[0.9] mb-8">
               Transformando investidores em <span className="text-zinc-400 italic">operadores sistemáticos.</span>
             </h1>
             <p className="text-xl text-zinc-500 leading-relaxed mb-10 max-w-xl">
