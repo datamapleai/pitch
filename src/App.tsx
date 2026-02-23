@@ -34,6 +34,59 @@ import {
 
 import { CONFIG } from "./config";
 
+import { Chart } from "react-google-charts";
+
+const GoogleFinanceChart = () => {
+  const data = [
+    ["Tempo", "IBOV"],
+    ["09:00", 128500],
+    ["10:00", 129200],
+    ["11:00", 128800],
+    ["12:00", 130100],
+    ["13:00", 129800],
+    ["14:00", 131200],
+    ["15:00", 130500],
+    ["16:00", 132100],
+    ["17:00", 131800],
+    ["18:00", 132500],
+  ];
+
+  const options = {
+    curveType: "function",
+    legend: { position: "none" },
+    colors: ["#1a73e8"], // Google Blue
+    backgroundColor: "transparent",
+    chartArea: { width: "90%", height: "80%" },
+    hAxis: {
+      textStyle: { color: "#70757a", fontSize: 10 },
+      gridlines: { color: "transparent" },
+    },
+    vAxis: {
+      textStyle: { color: "#70757a", fontSize: 10 },
+      gridlines: { color: "#f1f3f4" },
+    },
+    lineWidth: 2,
+  };
+
+  return (
+    <div className="w-full h-full flex flex-col">
+      <div className="flex items-baseline gap-2 px-4 pt-4">
+        <span className="text-2xl font-medium text-zinc-900">132.500,00</span>
+        <span className="text-sm font-medium text-emerald-600">+1.240 (0,94%)</span>
+      </div>
+      <div className="flex-grow">
+        <Chart
+          chartType="LineChart"
+          width="100%"
+          height="100%"
+          data={data}
+          options={options}
+        />
+      </div>
+    </div>
+  );
+};
+
 const ibovespaData = [
   { name: 'Jan', value: 110000 },
   { name: 'Fev', value: 115000 },
@@ -99,9 +152,9 @@ export default function App() {
               <Target className="w-3 h-3" />
               Captação Pré-Seed: R$ 300.000
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter leading-tight md:leading-[0.9] mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-tight md:leading-[1.1] mb-8">
               Transformando investidores em <span className="text-zinc-400 italic">operadores sistemáticos.</span>
-            </h1>
+            </h2>
             <p className="text-xl text-zinc-500 leading-relaxed mb-10 max-w-xl">
               Fintech brasileira focada em automação quantitativa e gestão de risco para investidores pessoa física. Performance real acima de marketing.
             </p>
@@ -125,36 +178,20 @@ export default function App() {
             <div className="aspect-square bg-zinc-50 rounded-3xl border border-zinc-100 p-8 flex flex-col justify-between">
               <div className="flex justify-between items-start">
                 <div>
-                  <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Performance Real</p>
-                  <h3 className="text-3xl font-bold tracking-tight">+24.8% <span className="text-emerald-500 text-sm font-medium">YTD</span></h3>
+                  <div className="flex items-center gap-2 mb-1">
+                    <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Performance Real</p>
+                    <span className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50 text-[10px] font-bold text-emerald-600 animate-pulse">
+                      <div className="w-1 h-1 rounded-full bg-emerald-600" /> LIVE
+                    </span>
+                  </div>
+                  <h3 className="text-3xl font-bold tracking-tight">IBOV <span className="text-emerald-500 text-sm font-medium">INDEXBVMF</span></h3>
                 </div>
                 <div className="p-3 bg-white rounded-xl shadow-sm border border-zinc-100">
                   <LineChartIcon className="w-6 h-6 text-black" />
                 </div>
               </div>
-              <div className="h-48 w-full mt-4">
-                <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={ibovespaData}>
-                    <defs>
-                      <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
-                        <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
-                      </linearGradient>
-                    </defs>
-                    <Tooltip 
-                      contentStyle={{ backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #f4f4f5', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                      itemStyle={{ color: '#10b981', fontWeight: 'bold' }}
-                    />
-                    <Area 
-                      type="monotone" 
-                      dataKey="value" 
-                      stroke="#10b981" 
-                      strokeWidth={3}
-                      fillOpacity={1} 
-                      fill="url(#colorValue)" 
-                    />
-                  </AreaChart>
-                </ResponsiveContainer>
+              <div className="h-64 w-full mt-4 bg-white rounded-xl overflow-hidden border border-zinc-100">
+                <GoogleFinanceChart />
               </div>
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="p-4 bg-white rounded-2xl border border-zinc-100">
