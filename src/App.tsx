@@ -32,6 +32,8 @@ import {
   Area
 } from 'recharts';
 
+import { CONFIG } from "./config";
+
 const ibovespaData = [
   { name: 'Jan', value: 110000 },
   { name: 'Fev', value: 115000 },
